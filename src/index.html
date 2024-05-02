@@ -2,23 +2,60 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>FocusFrame</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load ="partials/header.html" />
+    <div class="wrapper-for-grid">
+      <load src="partials/header.html" />
+      <load src="partials/hero.html" />
+    </div>
+    <load src="partials/advertisement.html" />
+    <load src="partials/about-us.html" />
+    <load src="partials/our-courses.html" />
+    <load src="partials/our-mentors.html" />
+    <load src="partials/sign-up.html" />
+    <load src="partials/reviews.html" />
+    <load src="partials/footer.html" />
 
-    <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
-    </section>
+    <!-- <script src="./main.js" defer></script> -->
+    <script>
+      'use strict';
+      {
+        let menuBtnOpen = document.querySelector('.header-menu-btn');
+        menuBtnOpen.addEventListener('click', function () {
+          mobileMenuToggle();
+        });
 
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
+        let menuBtnClose = document.querySelector('.mobile-button');
+        menuBtnClose.addEventListener('click', function () {
+          mobileMenuToggle();
+        });
 
-    <script type="module" src="./main.js"></script>
+        let menuItems = document.querySelectorAll('.menu-item');
+        for (let menuItem of menuItems) {
+          menuItem.addEventListener('click', function () {
+            mobileMenuToggle();
+          });
+        }
+
+        let menu = document.querySelector('.backdrop');
+        function mobileMenuToggle() {
+          menu.classList.toggle('active');
+        }
+      }
+    </script>
   </body>
 </html>
